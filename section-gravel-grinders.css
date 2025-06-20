@@ -1,0 +1,239 @@
+/* Gravel Grinders Section Styles */
+
+.gravel-grinders-section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: rgb(var(--color-background));
+}
+
+.gravel-grinders__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Header Styles */
+.gravel-grinders__header {
+  text-align: left;
+  max-width: 60rem;
+}
+
+.gravel-grinders__title {
+  font-size: 4.8rem;
+  color: #9F9F9F;
+  line-height: 0px;
+}
+
+.gravel-grinders__subtitle.h2 span.subheading {
+  font-size: 4.8rem;
+  background: linear-gradient(#9F9F9F, #9F0D0D);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 0px;
+}
+
+p.gravel-grinders__subtitle.h2 span.subheading-differentcolor {
+    font-size: 4.8rem;
+    line-height: 0;
+    color: #9F9F9F;
+}
+
+.gravel-grinders__subtitle::first-line {
+  color: #d4513a;
+}
+
+/* Carousel Container */
+.gravel-grinders__carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Carousel Styles */
+.gravel-grinders__carousel {
+  display: flex;
+  gap: 0rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding-bottom: 1rem;
+  cursor: grab;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.gravel-grinders__carousel::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.gravel-grinders__carousel.active {
+  cursor: grabbing;
+}
+
+/* Individual Slide */
+.gravel-grinders__slide {
+  flex: 0 0 auto;
+  width: 30rem;
+  aspect-ratio: 3/4;
+  position: relative;
+}
+
+.gravel-grinders__image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background-color: rgb(var(--color-background));
+}
+
+.gravel-grinders__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gravel-grinders__image--placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+div:empty {
+  display: block!important;
+}
+
+.image-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  pointer-events: none;
+}
+
+
+#gravel-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: auto;
+  cursor: grab;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+#gravel-carousel::-webkit-scrollbar {
+  display: none;
+}
+#gravel-carousel.dragging {
+  cursor: grabbing;
+}
+.gravel-grinders__slide {
+  flex: 0 0 auto;
+  margin-right: 10px;
+}
+
+
+/* Instagram Handle Overlay */
+.gravel-grinders__handle {
+  position: absolute;
+  bottom: 8px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  color: #fff;
+  font-family: 'Neue Montreal';
+  z-index: 2;
+}
+
+/* Scroll Hint */
+.gravel-grinders__scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 2rem;
+  color: rgba(var(--color-foreground), 0.6);
+  font-size: 1.4rem;
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 989px) {
+  .gravel-grinders-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .gravel-grinders__content {
+    gap: 2rem;
+  }
+  
+  .gravel-grinders__title,
+  .gravel-grinders__subtitle,
+  .gravel-grinders__subtitle.h2 span.subheading,
+  p.gravel-grinders__subtitle.h2 span.subheading-differentcolor
+  {
+    font-size: 3.6rem;
+    line-height: 0px;
+  }
+  
+  .gravel-grinders__slide {
+    width: 25rem;
+  }
+  
+  .gravel-grinders__carousel {
+    gap: 0rem;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .gravel-grinders-section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .gravel-grinders__content {
+    gap: 1rem;
+  }
+  
+  .gravel-grinders__title,
+  .gravel-grinders__subtitle,
+  .gravel-grinders__subtitle.h2 span.subheading,
+  p.gravel-grinders__subtitle.h2 span.subheading-differentcolor
+  {
+    font-size: 2.2rem;
+    line-height: 0px;
+  }
+  
+  .gravel-grinders__slide {
+    width: 22rem;
+  }
+  
+  .gravel-grinders__carousel {
+    gap: 0rem;
+  }
+  
+  .gravel-grinders__handle {
+    left: 1.2rem;
+    padding: 0.6rem 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .gravel-grinders__scroll-hint {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .gravel-grinders__title,
+  .gravel-grinders__subtitle {
+    font-size: 2.4rem;
+  }
+  
+  .gravel-grinders__slide {
+    width: 20rem;
+  }
+}

@@ -1,0 +1,146 @@
+<!-- CSS File -->
+{{ 'section-gravel-grinders.css' | asset_url | stylesheet_tag }}
+<!-- JS File -->
+<script src="{{ 'gravel-grinders.js' | asset_url }}" defer></script>
+
+<div class="gravel-grinders-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="gravel-grinders__content">
+      <!-- Header Content -->
+      <div class="gravel-grinders__header">
+        <h2 class="gravel-grinders__title h1">
+          {{ section.settings.heading | default: "We empower" | escape }}
+        </h2>
+        <p class="gravel-grinders__subtitle h2">
+          <span class="subheading-differentcolor">{{ section.settings.subheading-differentcolor | default: "gravel grinders" | escape }}</span><span class="subheading"> {{ section.settings.subheading | default: "gravel grinders" | escape }}</span>
+        </p>
+      </div>
+
+      <!-- Image Carousel -->
+      <div class="gravel-grinders__carousel-container">
+        <div class="gravel-grinders__carousel" id="gravel-carousel">
+          {% for block in section.blocks %}
+            {% case block.type %}
+              {% when 'image' %}
+                <div class="gravel-grinders__slide" {{ block.shopify_attributes }}>
+                  <div class="gravel-grinders__image-wrapper">
+                    {% if block.settings.image != blank %}
+                      {{
+                        block.settings.image
+                        | image_url: width: 600
+                        | image_tag:
+                          loading: 'lazy',
+                          class: 'gravel-grinders__image',
+                          widths: '300, 400, 500, 600',
+                          sizes: '(min-width: 990px) 500px, (min-width: 750px) 400px, 300px',
+                          alt: block.settings.image.alt | default: block.settings.instagram_handle
+                      }}
+                    {% else %}
+                      {{ 'lifestyle-1' | placeholder_svg_tag: 'gravel-grinders__image gravel-grinders__image--placeholder' }}
+                    {% endif %}
+                    <div class="image-shadow"></div>
+                    {% if block.settings.instagram_handle != blank %}
+                      <div class="gravel-grinders__handle">
+                        @{{ block.settings.instagram_handle }}
+                      </div>
+                    {% endif %}
+                  </div>
+                  
+                </div>
+            {% endcase %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Gravel Grinders",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "default": "We empower",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading-differentcolor", 
+      "default": "20,000+",
+      "label": "Subheading Different Color"
+    },
+    {
+      "type": "text",
+      "id": "subheading", 
+      "default": "gravel grinders",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom", 
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "instagram_handle",
+          "label": "Instagram Handle",
+          "info": "Enter without the @ symbol"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gravel Grinders",
+      "blocks": [
+        {
+          "type": "image",
+          "settings": {
+            "instagram_handle": "cyclingjenny"
+          }
+        },
+        {
+          "type": "image", 
+          "settings": {
+            "instagram_handle": "sc_dream"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
